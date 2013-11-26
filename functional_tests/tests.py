@@ -86,4 +86,3 @@ class NewVisitorTest(LiveServerTestCase):
         self.assertIn('Buy milk', page_text)
 
         # Satistied, she goes back to sleep
-        self.browser.quit()

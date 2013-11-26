@@ -4,7 +4,8 @@ List App Test:
  ✔ Display multiple items in the table @done (13-11-24 16:20)
  ✔ Support more than one list @done (13-11-24 20:49)
  ✔ Get FTs to clean up after themselves @done (13-11-25 23:30)
- ☐ Adjust models so that items are associated with different lists
- ☐ Add unique URLs for each list
- ☐ Add a URL for creating a new list via POST
- ☐ Add URLs for adding new item to an existing list via POST
+ ✔ Adjust models so that items are associated with different lists @done (13-11-26 00:35)
+ ✔ Add unique URLs for each list @done (13-11-26 00:36)
+ ✔ Add a URL for creating a new list via POST @done (13-11-26 00:36)
+ ✔ Add URLs for adding new item to an existing list via POST @done (13-11-26 23:49)
+ ☐ Refactor away some duplication in urls.py
