@@ -2,7 +2,7 @@
 
 {% block header_text %}Start  a new To-Do list{% endblock %}
 
-{% block form_action %}/lists/new{% endblock %}
+{% block form_action %}/lists/{{ list.id }}/new_item{% endblock %}
 
 {% block table %}
     <table id="id_list_table">
