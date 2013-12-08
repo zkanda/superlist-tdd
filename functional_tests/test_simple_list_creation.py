@@ -1,36 +1,10 @@
-import sys
-from django.test import LiveServerTestCase
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 
+from .base import FunctionalTest
 
-class NewVisitorTest(LiveServerTestCase):
 
-    @classmethod
-    def setUpClass(cls):
-        for arg in sys.argv:
-            if 'liveserver' in arg:
-                cls.server_url = 'http://' + arg.split('=')[1]
-                return
-        LiveServerTestCase.setUpClass()
-        cls.server_url = cls.live_server_url
-
-    @classmethod
-    def tearDownClass(cls):
-        if cls.server_url == cls.live_server_url:
-            LiveServerTestCase.tearDownClass
-
-    def setUp(self):
-        self.browser = webdriver.Firefox()
-        self.browser.implicitly_wait(3)
-
-    def tearDown(self):
-        self.browser.quit()
-
-    def check_for_row_in_list_table(self, row_text):
-        table = self.browser.find_element_by_id('id_list_table')
-        rows = table.find_elements_by_tag_name('tr')
-        self.assertIn(row_text, [row.text for row in rows])
+class NewVisitorTest(FunctionalTest):
 
     def test_can_start_a_list_and_retrieve_it_later(self):
         # Edith has heard about a cool new online to-do app. She goes
@@ -101,26 +75,3 @@ class NewVisitorTest(LiveServerTestCase):
         self.assertIn('Buy milk', page_text)
 
         # Satistied, she goes back to sleep
-
-    def test_layout_styling(self):
-        # Edith goes to the homepage
-        self.browser.get(self.server_url)
-
-        # She notices the input box is nicely centered
-        inputbox = self.browser.find_element_by_tag_name('input')
-        window_width = self.browser.get_window_size()['width']
-        self.browser.implicitly_wait(3)
-        self.assertAlmostEqual(
-            inputbox.location['x'] + inputbox.size['width'] / 2,
-            window_width / 2,
-            delta=3
-        )
-
-        inputbox.send_keys('testing\n')
-        inputbox = self.browser.find_element_by_tag_name('input')
-        window_width = self.browser.get_window_size()['width']
-        self.assertAlmostEqual(
-            inputbox.location['x'] + inputbox.size['width'] / 2,
-            window_width / 2,
-            delta=3
-        )
