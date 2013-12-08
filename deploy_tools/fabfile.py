@@ -54,8 +54,8 @@ def _update_virtualenv(source_folder):
 
 
 def _update_static_files(source_folder):
-    run('cd %s && ../virtualenv/bin/python3.3 manage.py collectstatic --noinput'
-        % (source_folder,))
+    run('cd %s && ../virtualenv/bin/python3.3 manage.py collectstatic \
+        --noinput' % (source_folder,))
 
 
 def _update_database(source_folder):
