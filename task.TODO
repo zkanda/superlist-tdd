@@ -1,11 +1,11 @@
 List App Test:
- ☐ remove hard-coded URLs from views.py
- ✔ remove hard-coded URLS from form in home.html @done (13-12-12 21:02)
- ☐ remove hard-coded URLS from form in list.html
  ☐ remove duplication of validation logic in views.
 
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
+ ✔ remove hard-coded URLs from views.py @done (13-12-12 21:59) @project(List App Test)
+ ✔ remove hard-coded URLS from form in home.html @done (13-12-12 21:02) @project(List App Test)
+ ✔ remove hard-coded URLS from form in list.html @done (13-12-12 21:59) @project(List App Test)
  ✔ Refactor away some duplication in urls.py @done (13-12-12 21:02) @project(List App Test)
  ✔ Add URLs for adding new item to an existing list via POST @done (13-11-26 23:49) @project(List App Test)
  ✔ Add unique URLs for each list @done (13-11-26 00:36) @project(List App Test)
