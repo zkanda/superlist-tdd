@@ -17,6 +17,8 @@ class LayoutAndStyling(FunctionalTest):
             delta=3
         )
 
+        # She starts a new list and sees the input is nicely
+        # centered there too
         inputbox.send_keys('testing\n')
         inputbox = self.browser.find_element_by_tag_name('input')
         window_width = self.browser.get_window_size()['width']
