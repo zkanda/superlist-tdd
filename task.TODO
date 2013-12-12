@@ -1,11 +1,18 @@
 List App Test:
- ✔ Don't save blank items for every request @done (13-11-24 15:37)
- ✔ Code smell: POST test is too long? @done (13-11-24 15:37)
- ✔ Display multiple items in the table @done (13-11-24 16:20)
- ✔ Support more than one list @done (13-11-24 20:49)
- ✔ Get FTs to clean up after themselves @done (13-11-25 23:30)
- ✔ Adjust models so that items are associated with different lists @done (13-11-26 00:35)
- ✔ Add unique URLs for each list @done (13-11-26 00:36)
- ✔ Add a URL for creating a new list via POST @done (13-11-26 00:36)
- ✔ Add URLs for adding new item to an existing list via POST @done (13-11-26 23:49)
- ☐ Refactor away some duplication in urls.py
+ ☐ remove hard-coded URLs from views.py
+ ✔ remove hard-coded URLS from form in home.html @done (13-12-12 21:02)
+ ☐ remove hard-coded URLS from form in list.html
+ ☐ remove duplication of validation logic in views.
+
+＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
+Archive:
+ ✔ Refactor away some duplication in urls.py @done (13-12-12 21:02) @project(List App Test)
+ ✔ Add URLs for adding new item to an existing list via POST @done (13-11-26 23:49) @project(List App Test)
+ ✔ Add unique URLs for each list @done (13-11-26 00:36) @project(List App Test)
+ ✔ Add a URL for creating a new list via POST @done (13-11-26 00:36) @project(List App Test)
+ ✔ Adjust models so that items are associated with different lists @done (13-11-26 00:35) @project(List App Test)
+ ✔ Get FTs to clean up after themselves @done (13-11-25 23:30) @project(List App Test)
+ ✔ Support more than one list @done (13-11-24 20:49) @project(List App Test)
+ ✔ Display multiple items in the table @done (13-11-24 16:20) @project(List App Test)
+ ✔ Don't save blank items for every request @done (13-11-24 15:37) @project(List App Test)
+ ✔ Code smell: POST test is too long? @done (13-11-24 15:37) @project(List App Test)
