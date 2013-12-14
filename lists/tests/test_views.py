@@ -4,7 +4,7 @@ from django.template.loader import render_to_string
 from django.test import TestCase
 from django.utils.html import escape
 
-from lists.forms import ItemForm
+from lists.forms import ItemForm, EMPTY_LIST_ERROR
 from lists.models import Item, List
 from lists.views import home_page
 
@@ -28,6 +28,33 @@ class HomePageTest(TestCase):
         request = HttpRequest()
         home_page(request)
         self.assertEqual(Item.objects.all().count(), 0)
+
+
+class NewListTest(TestCase):
+
+    def test_saving_a_POST_request(self):
+        self.client.post(
+            '/lists/new',
+            data={'text': 'A new list item'}
+        )
+        self.assertEqual(Item.objects.all().count(), 1)
+        new_item = Item.objects.all()[0]
+        self.assertEqual(new_item.text, 'A new list item')
+
+    def test_redirects_after_POST(self):
+        response = self.client.post(
+            '/lists/new',
+            data={'text': 'A new list item'}
+        )
+        new_list = List.objects.all()[0]
+        self.assertRedirects(response, '/lists/%d/' % (new_list.id,))
+
+    def test_validation_errors_sent_back_to_home_page_template(self):
+        response = self.client.post('/lists/new', data={'text': ''})
+        self.assertEqual(Item.objects.all().count(), 0)
+        self.assertTemplateUsed(response, 'home.html')
+        self.assertContains(response, escape(EMPTY_LIST_ERROR))
+        self.assertIsInstance(response.context['form'], ItemForm)
 
 
 class ListViewTest(TestCase):
